@@ -158,15 +158,24 @@ int main() {
     // SAP XEP 
               // nguyen tac lay tung phan tu trong mang (A) ss voi tung phan tu sau no
               // Neu phan tu nao nho hon no(A) thi hoan vi 2 so do cho nhau
+    int hVi;
     for (int i = 0; i < length; i++) // Duyet tung phan tu mang
     {
-        for (int i = 0; i < length; i++)
+        for (int j = 0; j < length; j++)
         {// duyet tung phan tu sau phan tu thu i
-
+            if (intergerarray[i]> intergerarray[j])
+            {
+                hVi = intergerarray[i];
+                intergerarray[i] = intergerarray[j];
+                intergerarray[j] = hVi;
+            }
         }
-        intergerarray[i]
     }
-
+    printf("\n IN RA CAC PHAN TU MANG TANG DAN==\n");
+    for (int i = 0; i < length; i++)
+    {//in ra gia tri phan tu
+        printf("%d\t", intergerarray[i]);
+    }
     return 0;
 }
 //duyet mang va thuc hien cong viec
