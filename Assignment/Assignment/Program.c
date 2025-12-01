@@ -8,6 +8,43 @@ void kiemTraSoNguyen() {
 	while (i == 1)
 	{
 
+		{
+			printf("Kiem tra so nguyen\n");
+			int x, i;
+			int count = 0;
+			printf("Nhap vao so nguyen x: ");
+			scanf("%d", &x);
+			if (x == (int)x)
+			{
+				printf("%.d la so nguyen.\n", x);
+			}
+			else
+			{
+				printf("%.d khong phai la so nguyen.\n", x);
+			}
+			for (i = 2; i < x; i++) {
+				if (x % i == 0) {
+					count++;
+				}
+			}
+			if (count == 0) {
+				printf("%d la so nguyen to\n", x);
+			}
+			else {
+				printf("%d khong phai so nguyen to\n", x);
+			}
+
+			for (i = 1; i <= x; i++) {
+				if (i * i == x) {
+					printf("%d la so chinh phuong\n", x);
+					break;
+				}
+				else if (i * i > x) {
+					printf("%d khong phai so chinh phuong\n", x);
+					break;
+				}
+			}
+		}
 		system("cls");//clear screen
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
@@ -45,6 +82,32 @@ void TinhTienDien() {
 	// vong lap
 	while (1 == 1)
 	{
+		printf("Tinh tien dien\n");
+		int so_kwh;
+		float tien = 0;
+		printf("Nhap so kWh su dung trong thang: ");
+		scanf("%d", &so_kwh);
+		if (so_kwh <= 50) {
+			tien = so_kwh * 1.678;
+		}
+		else if (so_kwh <= 100) {
+			tien = 50 * 1.678 + (so_kwh - 50) * 1.734;
+		}
+		else if (so_kwh <= 200) {
+			tien = 50 * 1.678 + 50 * 1.734 + (so_kwh - 100) * 2.014;
+		}
+		else if (so_kwh <= 300) {
+			tien = 50 * 1.678 + 50 * 1.734 + 100 * 2.014 + (so_kwh - 200) * 2.536;
+		}
+		else if (so_kwh <= 400) {
+			tien = 50 * 1.678 + 50 * 1.734 + 100 * 2.014 + 100 * 2.536 + (so_kwh - 300) * 2.834;
+		}
+		else {
+			tien = 50 * 1.678 + 50 * 1.734 + 100 * 2.014 + 100 * 2.536 + 100 * 2.834 + (so_kwh - 400) * 2.927;
+		}
+		printf("So tien phai dong la: %f VND\n", tien);
+
+		break;
 		system("cls");//clear screen
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
@@ -144,6 +207,7 @@ int main()
 		printf("0.Thoat");printf("\n");
 		printf("Moi chon chuc nang tren:");
 		scanf("%d", &chon);
+
 		switch (chon)
 		{
 		case 1:
@@ -185,8 +249,10 @@ int main()
 			printf("\n");
 			break;
 		}
+		printf("\n");
 		printf("Tiep tuc chuc nang nay[1=Co|khac-khong]: ");
 		scanf("%d", &chon);
+		system("cls");
 	} while (chon != 0);
 }
 
