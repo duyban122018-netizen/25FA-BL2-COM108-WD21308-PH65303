@@ -2,18 +2,17 @@
 // Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
 #include <stdio.h>
+
+
 void kiemTraSoNguyen() {
 	int i = 1;
 	// vong lap
 	while (i == 1)
 	{
-
-		{
-			printf("Kiem tra so nguyen\n");
 			int x, i;
 			int count = 0;
-			printf("Nhap vao so nguyen x: ");
-			scanf("%d", &x);
+		printf("Nhap vao so nguyen x: ");
+		scanf("%d", &x);
 			if (x == (int)x)
 			{
 				printf("%.d la so nguyen.\n", x);
@@ -22,8 +21,10 @@ void kiemTraSoNguyen() {
 			{
 				printf("%.d khong phai la so nguyen.\n", x);
 			}
-			for (i = 2; i < x; i++) {
-				if (x % i == 0) {
+			for (i = 2; i < x; i++) 
+			{
+				if (x % i == 0) 
+				{
 					count++;
 				}
 			}
@@ -34,22 +35,24 @@ void kiemTraSoNguyen() {
 				printf("%d khong phai so nguyen to\n", x);
 			}
 
-			for (i = 1; i <= x; i++) {
-				if (i * i == x) {
+			for (i = 1; i <= x; i++) 
+			{
+				if (i * i == x)
+				{
 					printf("%d la so chinh phuong\n", x);
 					break;
 				}
-				else if (i * i > x) {
+				else if (i * i > x) 
+				{
 					printf("%d khong phai so chinh phuong\n", x);
 					break;
 				}
 			}
-		}
+		
 		system("cls");//clear screen
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
 		scanf("%d", &i);
-
 	}
 }
 void TimUocSoChungVaBoiSoChungCua2So() {
@@ -57,6 +60,28 @@ void TimUocSoChungVaBoiSoChungCua2So() {
 	// vong lap
 	while (i == 1)
 	{
+		printf("Tim Uoc so chung va boi so chung cua hai so\n");
+		int x, y;
+		printf("Nhap vao hai so nguyen x va y: ");
+		scanf("%d %d", &x, &y);
+		int snn;
+		if (x < y) 
+		{
+			snn = x;
+		}
+		else
+		{
+			snn = y;
+		}
+		int gcd = 1;
+		for (int i = 1; i <= snn; i++) {
+			if (x % i == 0 && y % i == 0) {
+				gcd = i;
+			}
+		}
+		long long lcm = (long long)x * y / gcd;
+		printf("Uoc so chung lon nhat cua %d va %d la: %d\n", x, y, gcd);
+		printf("Boi so chung nho nhat cua %d va %d la: %lld\n", x, y, lcm);
 
 		system("cls");//clear screen
 		printf("Ban vua nhap:%d\n", i);
@@ -70,6 +95,37 @@ void ChuongtrinhTinhTienChoQuanKARAOKE() {
 	// vong lap
 	while (i == 1)
 	{
+		int bd, kt;
+		printf("Nhap gio bat dau (tu 12 den 23): ");
+		scanf("%d", &bd);
+		printf("Nhap gio ket thuc (tu 12 den 23): ");
+		scanf("%d", &kt);
+
+		if (bd < 12 || bd > 23 || kt < 12 || kt > 23 || bd >= kt) 
+		{
+			printf("Gio bat dau hoac gio ket thuc khong hop le.\n");
+			break;
+		}
+
+		int gio = kt - bd;
+		int tien = 0;
+
+		if (gio <= 3) 
+		{
+			tien = 150000;
+		}
+		else 
+		{
+			tien = 150000 + (gio - 3) * 35000;
+		}
+
+		if (bd >= 14 && bd <= 17) 
+		{
+			tien = tien * 9 / 10;
+		}
+
+		printf("Gia tien can thanh toan: %d VND\n", tien);
+		break;
 		system("cls");//clear screen	
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
@@ -120,7 +176,19 @@ void ChucNangDoiTien() {
 	// vong lap
 	while (i == 1)
 	{
-
+		// khai bao
+		int	soTien;
+		int	menhGia[] = { 500,200,100,50,20,10,5,2,1 };
+		int	soToTien = 0;
+		// Nhap so Tien
+		printf("Moi Nhap Vao So Tien Can Do: ");
+		scanf("%d", &soTien);
+		for (int j = 0; j < 9; j++)
+		{
+			soToTien = soTien / menhGia[j];
+			printf("Co %d to tien menh gia %d\n ", soToTien, menhGia[j]);
+			soTien = soTien % menhGia[j];
+		}
 		system("cls");//clear screen
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
