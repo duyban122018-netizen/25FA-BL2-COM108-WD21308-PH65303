@@ -9,7 +9,7 @@ void kiemTraSoNguyen() {
 	// vong lap
 	while (i == 1)
 	{
-			int x, i;
+			int x, j;
 			int count = 0;
 		printf("Nhap vao so nguyen x: ");
 		scanf("%d", &x);
@@ -21,9 +21,9 @@ void kiemTraSoNguyen() {
 			{
 				printf("%.d khong phai la so nguyen.\n", x);
 			}
-			for (i = 2; i < x; i++) 
+			for (j = 2; j < x; j++) 
 			{
-				if (x % i == 0) 
+				if (x % j == 0) 
 				{
 					count++;
 				}
@@ -35,25 +35,25 @@ void kiemTraSoNguyen() {
 				printf("%d khong phai so nguyen to\n", x);
 			}
 
-			for (i = 1; i <= x; i++) 
+			for (j = 1; j <= x; j++) 
 			{
-				if (i * i == x)
+				if (j * j == x)
 				{
 					printf("%d la so chinh phuong\n", x);
 					break;
 				}
-				else if (i * i > x) 
+				else if (j * j > x) 
 				{
 					printf("%d khong phai so chinh phuong\n", x);
 					break;
 				}
 			}
-		
-		system("cls");//clear screen
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
 		scanf("%d", &i);
+		system("cls");//clear screen
 	}
+
 }
 void TimUocSoChungVaBoiSoChungCua2So() {
 	int i = 1;
@@ -83,11 +83,11 @@ void TimUocSoChungVaBoiSoChungCua2So() {
 		printf("Uoc so chung lon nhat cua %d va %d la: %d\n", x, y, gcd);
 		printf("Boi so chung nho nhat cua %d va %d la: %lld\n", x, y, lcm);
 
-		system("cls");//clear screen
+		
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
 		scanf("%d", &i);
-
+		system("cls");//clear screen
 	}
 }
 void ChuongtrinhTinhTienChoQuanKARAOKE() {
@@ -126,11 +126,11 @@ void ChuongtrinhTinhTienChoQuanKARAOKE() {
 
 		printf("Gia tien can thanh toan: %d VND\n", tien);
 		break;
-		system("cls");//clear screen	
+	
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
 		scanf("%d", &i);
-
+		system("cls");//clear screen	
 	}
 }
 void TinhTienDien() {
@@ -189,11 +189,11 @@ void ChucNangDoiTien() {
 			printf("Co %d to tien menh gia %d\n ", soToTien, menhGia[j]);
 			soTien = soTien % menhGia[j];
 		}
-		system("cls");//clear screen
+		
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
 		scanf("%d", &i);
-
+		system("cls");//clear screen
 	}
 }
 void TinhLaiSuatVayNganHangVayTraGop() {

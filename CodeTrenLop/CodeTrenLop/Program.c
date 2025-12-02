@@ -49,26 +49,70 @@ void sapXeptheothutuMang1Chieu() {
     }
 }
 void mangonl(){
+    
+
+        int intergerarray[100];//mang 
+        int length;
+        printf("Nhap so phan tu mang: ");
+        scanf("%d", &length);
+        for (int i = 0; i < length; i++)// i dai dien cho chi so
+        {
+            printf(" nhap gia tri phan tu tai vi tri %d: ", i);
+            scanf("%d", &intergerarray[i]);
+        }
+        // xuat
+        printf(" In ra ca phan tu mang: \n");
+        for (int i = 0; i < length; i++)
+        {
+            //in ra gia trij phan tu
+            printf("%d\t", intergerarray[i]);
+        }
+
+
+        // tim max,min
+        int min = intergerarray[0], max = intergerarray[0];
+        for (int i = 0; i < length; i++)
+        {
+            if (min > intergerarray[i])
+            {
+                min = intergerarray[i];
+            }
+            if (max < intergerarray[i])
+            {
+                max = intergerarray[i];
+            }
+        }
+        printf("\n gia tri min =%d\n ", min);
+        printf("\n gia tri max =%d\n ", max);
+
+
+        // SAP XEP 
+                  // nguyen tac lay tung phan tu trong mang (A) ss voi tung phan tu sau no
+                  // Neu phan tu nao nho hon no(A) thi hoan vi 2 so do cho nhau
+        int hVi;
+        for (int i = 0; i < length; i++) // Duyet tung phan tu mang
+        {
+            for (int j = 0; j < length; j++)
+            {// duyet tung phan tu sau phan tu thu i
+                if (intergerarray[i] > intergerarray[j])
+                {
+                    hVi = intergerarray[i];
+                    intergerarray[i] = intergerarray[j];
+                    intergerarray[j] = hVi;
+                }
+            }
+        }
+        printf("\n IN RA CAC PHAN TU MANG TANG DAN==\n");
+        for (int i = 0; i < length; i++)
+        {//in ra gia tri phan tu
+            printf("%d\t", intergerarray[i]);
+        }
+        return 0;
+    
     // C1-khhai bao bien mang va biet truoc so phan tu mang
     //int number[5];
     //C2 khhai bao bien mang va Khong biet truoc so phan tu mang 
-    int intergerarray[100];//mang 
-    int length;
-    printf("Nhap so phan tu mang: ");
-    scanf("%d", &length);
-    for (int i = 0; i < length; i++)// i dai dien cho chi so
-    {
-        printf(" nhap gia tri phan tu tai vi tri %d: ", i);
-        scanf("%d", &intergerarray[i]);
-    }
-    // xuat
-    printf(" In ra ca phan tu mang: \n");
-    for (int i = 0; i < length; i++)
-    {
-        //in ra gia trij phan tu
-        printf("%d\t", intergerarray[i]);
-    }
-    return 0;
+
     //duyet mang va thuc hien cong viec
     //=> duyet qua cac phan tu cua mang
     //for(<khoi tao gia tri ban dau>;<dieu kien>;<buoc nhay>){Cong viec}
@@ -113,78 +157,87 @@ void ngay291125() {
         printf("mang[%d]=%d\n", i, intergerarray[i]);
     }
 }
+void Mang2Chieu(){
+    char  Kytu = 'A';// chi 1 ki tu - nhay 'a' chi 1 ki tu, nha" nhieu ki tu
+    //  string - "string.h"
+    char MAngKyTu[10] = { 'A','n','h' };
+    for (int i = 0; i < 3; i++)
+    {
+       
+        scanf(" %c", &MAngKyTu[i]);
+        // dung IF cho cac ki tu dac biet, Dung vong lap
+        if (MAngKyTu[i] == '.')
+        {
+            break;
+        }
+    }
+    //gets thay the cho for
+    //gets(MangKyTu);k dung dc voi vsua
+    /*for (int i = 0; i < 3; i++)
+    {
+        scanf("%c", MAngKyTu[i]);
+    }*/
+    puts(MAngKyTu);
 
+
+    int array[2][3];
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("Mang tai vi tri[%d][%d]= ", i, j);
+            scanf("%d", &array[i][j]);
+        }
+    }
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("%d, ", array[i][j]);
+
+        }
+        printf("\n");
+    }
+}
 //
 //
 int main() {
-    // C1-khhai bao bien mang va biet truoc so phan tu mang
-    //int number[5];
-    //C2 khhai bao bien mang va Khong biet truoc so phan tu mang 
-    int intergerarray[100];//mang 
-    int length;
-    printf("Nhap so phan tu mang: ");
-    scanf("%d", &length);
-    for (int i = 0; i < length; i++)// i dai dien cho chi so
+    char  Kytu = 'A';// chi 1 ki tu - nhay 'a' chi 1 ki tu, nha" nhieu ki tu
+    //  string - "string.h"
+    char MAngKyTu[10] = "Anh";
+    for (int i = 0; i < 3; i++)
     {
-        printf(" nhap gia tri phan tu tai vi tri %d: ",i);
-        scanf("%d",&intergerarray[i]);
+        scanf(" %c", &MAngKyTu[i]);
     }
-    // xuat
-    printf(" In ra ca phan tu mang: \n");
-    for (int i = 0; i < length; i++)
+    //gets thay the cho for
+    //gets(MangKyTu);k dung dc voi vsua
+    for (int i = 0; i < 3; i++)
     {
-        //in ra gia trij phan tu
-        printf("%d\t", intergerarray[i]);
-    }
+        printf("%c", MAngKyTu[i]);
+    }printf("\n");
+    //puts(MAngKyTu);
 
 
-    // tim max,min
-    int min= intergerarray[0], max=intergerarray[0];
-    for (int i = 0; i < length; i++)
+    int array[2][3];
+    for (int i = 0; i < 2; i++)
     {
-        if (min>intergerarray[i])
+        for (int j = 0; j < 3; j++)
         {
-            min = intergerarray[i];
-        }
-        if (max<intergerarray[i])
-        {
-            max = intergerarray[i];
+            printf("Mang tai vi tri[%d][%d]= ", i, j);
+            scanf("%d", &array[i][j]);
         }
     }
-    printf("\n gia tri min =%d\n ", min);
-    printf("\n gia tri max =%d\n ", max);
-
-
-    // SAP XEP 
-              // nguyen tac lay tung phan tu trong mang (A) ss voi tung phan tu sau no
-              // Neu phan tu nao nho hon no(A) thi hoan vi 2 so do cho nhau
-    int hVi;
-    for (int i = 0; i < length; i++) // Duyet tung phan tu mang
+    for (int i = 0; i < 2; i++)
     {
-        for (int j = 0; j < length; j++)
-        {// duyet tung phan tu sau phan tu thu i
-            if (intergerarray[i]> intergerarray[j])
-            {
-                hVi = intergerarray[i];
-                intergerarray[i] = intergerarray[j];
-                intergerarray[j] = hVi;
-            }
+        for (int j = 0; j < 3; j++)
+        {
+            printf("%d, ", array[i][j]);
+
         }
+        printf("\n");
     }
-    printf("\n IN RA CAC PHAN TU MANG TANG DAN==\n");
-    for (int i = 0; i < length; i++)
-    {//in ra gia tri phan tu
-        printf("%d\t", intergerarray[i]);
-    }
-    return 0;
 }
-//duyet mang va thuc hien cong viec
-//=> duyet qua cac phan tu cua mang
-//for(<khoi tao gia tri ban dau>;<dieu kien>;<buoc nhay>){Cong viec}
-//<khoi tai gia trij ban dau>:chi so dau tien cua mang
-//-> vi tri (chi so)cua phan tu dau tien ta muon duyet
-// <dieu kien>:nho hon so phan tu trong mang
-//<buoc nhay>nhay qua tung phan 1 thong qua gia tri chu chi so 
+
 
 
 // Debug/Run chuong trinh: bam "F5" hoac "Debug > Start Debugging" tren menu
