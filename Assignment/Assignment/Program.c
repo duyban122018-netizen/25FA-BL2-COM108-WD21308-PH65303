@@ -2,58 +2,56 @@
 // Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
 #include <stdio.h>
+#include<math.h>
+#include<stdlib.h>
 
 
 void kiemTraSoNguyen() {
 	int i = 1;
-	// vong lap
 	while (i == 1)
 	{
-			int x, j;
-			int count = 0;
+		int x, j;
+		int count = 0;
 		printf("Nhap vao so nguyen x: ");
 		scanf("%d", &x);
-			if (x == (int)x)
-			{
-				printf("%.d la so nguyen.\n", x);
-			}
-			else
-			{
-				printf("%.d khong phai la so nguyen.\n", x);
-			}
-			for (j = 2; j < x; j++) 
-			{
-				if (x % j == 0) 
-				{
-					count++;
+		printf("%d la so nguyen.\n", x);
+		// So Nguyen To
+		if (x <= 1) {
+			printf("%d khong phai so nguyen to\n", x);
+		}
+		else {
+			int SNT = 1;
+			for (j = 2; j <= sqrt(x); j++) {
+				if (x % j == 0) {
+					SNT = 0;
+					break;
 				}
 			}
-			if (count == 0) {
+			if (SNT) {
 				printf("%d la so nguyen to\n", x);
 			}
 			else {
 				printf("%d khong phai so nguyen to\n", x);
 			}
-
-			for (j = 1; j <= x; j++) 
-			{
-				if (j * j == x)
-				{
-					printf("%d la so chinh phuong\n", x);
-					break;
-				}
-				else if (j * j > x) 
-				{
-					printf("%d khong phai so chinh phuong\n", x);
-					break;
-				}
+		}
+		// So Chinh Phuong
+		if (x >= 0) {
+			int k = sqrt(x);
+			if (k * k == x) {
+				printf("%d la so chinh phuong\n", x);
 			}
-		printf("Ban vua nhap:%d\n", i);
-		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
+			else {
+				printf("%d khong phai so chinh phuong\n", x);
+			}
+		}
+		else {
+			printf("%d khong phai so chinh phuong\n", x);
+		}
+		printf("Ban co muon thuc hien tiep hay khong [1-Co|khac-Khong]: ");
 		scanf("%d", &i);
-		system("cls");//clear screen
+		printf("Ban vua nhap: %d\n", i);
+		system("cls");
 	}
-
 }
 void TimUocSoChungVaBoiSoChungCua2So() {
 	int i = 1;
@@ -74,7 +72,7 @@ void TimUocSoChungVaBoiSoChungCua2So() {
 			snn = y;
 		}
 		int gcd = 1;
-		for (int i = 1; i <= snn; i++) {
+		for ( i = 1; i <= snn; i++) {
 			if (x % i == 0 && y % i == 0) {
 				gcd = i;
 			}
@@ -83,7 +81,7 @@ void TimUocSoChungVaBoiSoChungCua2So() {
 		printf("Uoc so chung lon nhat cua %d va %d la: %d\n", x, y, gcd);
 		printf("Boi so chung nho nhat cua %d va %d la: %lld\n", x, y, lcm);
 
-		
+		// Vong lap
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
 		scanf("%d", &i);
@@ -201,6 +199,30 @@ void TinhLaiSuatVayNganHangVayTraGop() {
 	// vong lap
 	while (i == 1)
 	{
+		
+		printf("Bang lai suat vay ngan hang \n \n");
+			int tienVay;
+		printf("Moi nhap so tien can vay(VND):");
+		scanf("%d", &tienVay);
+			int tienLai;//tien lai hang thang
+			int tienGoc = tienVay / 12;//tien goc phai tra hang thang
+			int tienTra;//tien phai tra hang thang = tien goc + tien lai
+			int tienCon;//tien con lai sau khi tra tien goc
+			tienCon = tienVay;
+		printf("Ky han | Lai phai tra | Goc phai tra | So tien phai tra | So tien con lai | \n");
+		for (int i = 1; i <= 12; i++) 
+		{
+			tienLai = tienCon * 0.05;
+			tienTra = tienGoc + tienLai;
+			tienCon = tienCon - tienGoc;
+			printf("---------------------------------------------------------------------------\n");
+			printf("%d | ", i);
+			printf("%12d | ", tienLai);
+			printf("%12d | ", tienGoc);
+			printf("%16d | ", tienTra);
+			printf("%15d | ", tienCon);
+			printf("\n");
+		}
 		system("cls");//clear screen
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
@@ -213,12 +235,39 @@ void ChuongTrinhVaytienMuaXe() {
 	// vong lap
 	while (i == 1)
 	{
+		int percent;
+		printf("Nhap so phan tram vay toi da (0-100): ");
+		scanf("%d", &percent);
 
-		system("cls");//clear screen
+		if (percent < 0 || percent > 100) {
+			printf("Phan tram vay phai tu 0 den 100.\n");
+			return;
+		}
+		double giaxe = 500000000.0; 
+		double P = giaxe * (percent / 100.0); //tien vay
+		double tratruoc = giaxe - P; //tra lan dau
+
+		double laisuatnam = 0.072;
+		int nam = 24; 
+		int thang = nam * 12; 
+		double r = laisuatnam / 12.0; 
+
+		/* Tang truong lai suat theo thang tính (1 + r)^thang*/ // lai suat kep
+		int i;
+		double pow1 = 1.0;
+		for (i = 0; i < thang; i++) {
+			pow1 *= (1 + r);
+		}
+		// tien tra hang thang phai cha (PMT)
+		double PMT = P * (r * pow1) / (pow1 - 1);
+
+		printf("So tien phai tra lan dau: %.0f VNÐ\n", tratruoc);
+		printf("So tien phai tra hang thang cho den het ky han vay: %.0f VNÐ\n", PMT);
+
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
 		scanf("%d", &i);
-
+		system("cls");//clear screen
 	}
 }
 void SapXepThongTinSinhVien() {
