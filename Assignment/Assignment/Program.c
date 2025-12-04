@@ -71,12 +71,14 @@ void TimUocSoChungVaBoiSoChungCua2So() {
 		{
 			snn = y;
 		}
-		int gcd = 1;
+		int gcd = 1;// uoc chung lon nhat
 		for ( i = 1; i <= snn; i++) {
 			if (x % i == 0 && y % i == 0) {
 				gcd = i;
 			}
 		}
+		//BCNN
+		// ll dung de tranh tran khi nhan 2 so
 		long long lcm = (long long)x * y / gcd;
 		printf("Uoc so chung lon nhat cua %d va %d la: %d\n", x, y, gcd);
 		printf("Boi so chung nho nhat cua %d va %d la: %lld\n", x, y, lcm);
@@ -210,24 +212,24 @@ void TinhLaiSuatVayNganHangVayTraGop() {
 			int tienCon;//tien con lai sau khi tra tien goc
 			tienCon = tienVay;
 		printf("Ky han | Lai phai tra | Goc phai tra | So tien phai tra | So tien con lai | \n");
-		for (int i = 1; i <= 12; i++) 
+		for (int j = 1; j <= 12; j++) 
 		{
 			tienLai = tienCon * 0.05;
 			tienTra = tienGoc + tienLai;
 			tienCon = tienCon - tienGoc;
 			printf("---------------------------------------------------------------------------\n");
-			printf("%d | ", i);
+			printf("%d | ", j);
 			printf("%12d | ", tienLai);
 			printf("%12d | ", tienGoc);
 			printf("%16d | ", tienTra);
 			printf("%15d | ", tienCon);
 			printf("\n");
 		}
-		system("cls");//clear screen
+		
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
 		scanf("%d", &i);
-
+		system("cls");//clear screen
 	}
 }
 void ChuongTrinhVaytienMuaXe() {
@@ -275,6 +277,52 @@ void SapXepThongTinSinhVien() {
 	// vong lap
 	while (1 == 1)
 	{
+		{
+			int n;
+			printf("Nhap so luong sinh vien: ");
+			scanf("%d", &n);
+			getchar();
+
+			char hoten[100][50];
+			float diem[100];
+
+			for (int i = 0; i < n; i++) {
+				printf("\nNhap ho ten sinh vien thu %d: ", i + 1);
+				fgets(hoten[i], sizeof(hoten[i]), stdin);
+				hoten[i][strcspn(hoten[i], "\n")] = '\0';
+
+				printf("Nhap diem: ");
+				scanf("%f", &diem[i]);
+				getchar();
+			}
+			for (int i = 0; i < n - 1; i++) {
+				for (int j = i + 1; j < n; j++) {
+					if (diem[i] < diem[j]) {
+						float tmp = diem[i];
+						diem[i] = diem[j];
+						diem[j] = tmp;
+
+						char tmpName[50];
+						strcpy(tmpName, hoten[i]);
+						strcpy(hoten[i], hoten[j]);
+						strcpy(hoten[j], tmpName);
+					}
+				}
+			}
+			printf("\nDANH SACH SINH VIEN \n");
+			printf("%-25s %-10s %-15s\n", "Ho ten", "Diem", "Hoc luc");
+			for (int i = 0; i < n; i++) {
+				char hocluc[20];
+				if (diem[i] >= 9.0) strcpy(hocluc, "Xuat sac");
+				else if (diem[i] >= 8.0) strcpy(hocluc, "Gioi");
+				else if (diem[i] >= 6.5) strcpy(hocluc, "Kha");
+				else if (diem[i] >= 5.0) strcpy(hocluc, "Trung binh");
+				else strcpy(hocluc, "Yeu");
+
+				printf("%-25s %-10.2f %-15s\n", hoten[i], diem[i], hocluc);
+			}
+			return 0;
+		}
 		system("cls");//clear screen
 		printf("Ban vua nhap:%d\n", i);
 		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
