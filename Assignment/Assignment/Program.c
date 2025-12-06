@@ -330,34 +330,131 @@ void SapXepThongTinSinhVien() {
 	}
 }
 void GameFPOLY_LOTT() {
-	int i = 1;
-	// vong lap
-	while (1 == 1)
-	{
-		system("cls");//clear screen
-		printf("Ban vua nhap:%d\n", i);
-		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
-		scanf("%d", &i);
-	}
+			int tieptuc9;
+			do
+			{
+				system("cls");
+				int so1, so2;
+				int soNgauNhien1, soNgauNhien2;
+
+
+				printf("=== FPOLY-LOTT (2/15) ===\n");
+				printf("Nhap so thu nhat (01-15): ");
+				scanf("%d", &so1);
+				printf("Nhap so thu hai (01-15): ");
+				scanf("%d", &so2);
+				//ktra hop le
+				if (so1 < 1 || so1 > 15 || so2 < 1 || so2 > 15) {
+					printf("So nhap vao khong hop le! Chi chap nhan tu 01 den 15.\n");
+				}
+
+				// generate 2 so ngau nhien
+				soNgauNhien1 = rand() % 15 + 1;
+				soNgauNhien2 = rand() % 15 + 1;
+
+				// dam bao 2 so khac nhau
+				while (soNgauNhien1 == soNgauNhien2) {
+					soNgauNhien2 = rand() % 15 + 1;
+				}
+
+				// output ket qua
+				printf("\n=== KET QUA ===\n");
+				printf("So cua ban: %02d va %02d\n", so1, so2);
+				printf("So ket qua: %02d va %02d\n", soNgauNhien1, soNgauNhien2);
+
+				// dem so trung
+				int soTrung = 0;
+
+				if (so1 == soNgauNhien1 || so1 == soNgauNhien2) {
+					soTrung++;
+				}
+				if (so2 == soNgauNhien1 || so2 == soNgauNhien2) {
+					soTrung++;
+				}
+
+				// Xac dinh ket qua
+				printf("\n=== THONG BAO ===\n");
+				switch (soTrung) {
+				case 0:
+					printf("Chuc ban may man lan sau!\n");
+					break;
+				case 1:
+					printf("Chuc mung ban da trung giai nhi!\n");
+					break;
+				case 2:
+					printf("CHUC MUNG BAN DA TRUNG GIAI NHAT!\n");
+					break;
+				}
+				printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]:\n ");
+				scanf("%d", &tieptuc9);
+			} while (tieptuc9 == 1);
+			system("cls");
 }
 void ChuongTrinhTinhToanPhanSo() {
-	int i = 1;
-	// vong lap
-	while (1 == 1)
+
+
+	int tieptuc10;
+	do
 	{
-		system("cls");//clear screen
-		printf("Ban vua nhap:%d\n", i);
-		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]: ");
-		scanf("%d", &i);
-	}
+		system("cls");
+		int tu1, mau1, tu2, mau2;
+
+		printf("Nhap phan so 1 (tu/mau): ");
+		scanf("%d/%d", &tu1, &mau1);
+
+		printf("Nhap phan so 2 (tu/mau): ");
+		scanf("%d/%d", &tu2, &mau2);
+
+		// Ktra mau khac 0
+		if (mau1 == 0 || mau2 == 0) {
+			printf("Mau so phai khac 0!\n");
+		}
+		else {
+
+			printf("\nPhan so 1: %d/%d\n", tu1, mau1);
+			printf("Phan so 2: %d/%d\n\n", tu2, mau2);
+
+			// tinh tong
+			int tongTu = tu1 * mau2 + tu2 * mau1;
+			int tongMau = mau1 * mau2;
+			printf("Tong: (%d/%d) + (%d/%d) = %d/%d\n",
+				tu1, mau1, tu2, mau2, tongTu, tongMau);
+
+			// tinh hieu
+			int hieuTu = tu1 * mau2 - tu2 * mau1;
+			int hieuMau = mau1 * mau2;
+			printf("Hieu: (%d/%d) - (%d/%d) = %d/%d\n",
+				tu1, mau1, tu2, mau2, hieuTu, hieuMau);
+
+			// tinh tich
+			int tichTu = tu1 * tu2;
+			int tichMau = mau1 * mau2;
+			printf("Tich: (%d/%d) * (%d/%d) = %d/%d\n",
+				tu1, mau1, tu2, mau2, tichTu, tichMau);
+
+			// tinh thuong
+			if (tu2 == 0) {
+				printf("Thuong: Khong the chia cho 0\n");
+			}
+			else {
+				int thuongTu = tu1 * mau2;
+				int thuongMau = mau1 * tu2;
+				printf("Thuong: (%d/%d) / (%d/%d) = %d/%d\n",
+					tu1, mau1, tu2, mau2, thuongTu, thuongMau);
+			}
+		}
+		printf("Ban co muon tiep tuc khong? (1: Co, 0: Khong):\n ");
+		scanf("%d", &tieptuc10);
+	} while (tieptuc10 == 1);
+	system("cls");
 }
 
 int main()
 {
 	int	chon;
-	do
+	
+	do 
 	{
-		system("cls");//clear screen
 		printf("Menu");printf("\n");
 		printf("1. Kiem Tra So Nguyen");printf("\n");
 		printf("2. Tim Uoc So Chung Va Boi So Chung Cua 2 So");printf("\n");

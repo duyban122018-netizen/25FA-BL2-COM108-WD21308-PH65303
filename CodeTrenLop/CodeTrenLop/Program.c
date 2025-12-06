@@ -2,6 +2,8 @@
 // Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
 #include <stdio.h>
+#include<string.h>
+
 void DEMoMang1Chieu() {
     // DEMO mang 1 chieu
     // rarray = a
@@ -199,9 +201,7 @@ void Mang2Chieu(){
         printf("\n");
     }
 }
-//
-//
-int main() {
+void DemoString() {
     char  Kytu = 'A';// chi 1 ki tu - nhay 'a' chi 1 ki tu, nha" nhieu ki tu
     //  string - "string.h"
     char MAngKyTu[10] = "Anh";
@@ -236,6 +236,56 @@ int main() {
         }
         printf("\n");
     }
+}
+void ngay5thang11() {
+    // string - "string.h"
+    char mangKyTu[50];
+
+    while (getchar() != '\n')
+
+        printf("Nhap du lieu: ");
+    fgets(mangKyTu, sizeof(mangKyTu), stdin);
+
+    printf("%s", mangKyTu);
+    printf("\n");
+    //puts(mangKyTu); // thay the cho mang for
+
+    printf("String Length: ");
+    printf("%d", strlen(mangKyTu) - 1);  //-1 de bo ky tu xuong dong
+    printf("\n");
+    printf("String Compare The same As: ");
+    printf("%d", strcmp("aBc"), ("aBc"));   
+    printf("String Compare : ");
+    printf("%d", strcmp("A"), ("B"));   
+    printf("\n");
+    printf("String Compare: ");
+    printf("%d", strcmp("B"), ("A"));
+}
+void tenTuoi() {
+    //Khai bao bien dung de nhap chuoi
+    char hoTen[100];
+    int tuoi;
+
+    //nhap so
+    printf("Nhap tuoi cua ban: ");
+    scanf("%d", &tuoi);
+    fflush(stdin);
+
+    //nhap chuoi
+    printf("Nhap ho ten: ");
+    fgets(hoTen, sizeof(hoTen), stdin);
+
+    //in ra chuoi
+    printf("Ho ten vua nhap: %s", hoTen);
+    printf("Tuoi vua nhap: %d", tuoi);
+
+    return 0;
+}
+//
+//
+int main(){ 
+    int Chon;
+
 }
 
 
