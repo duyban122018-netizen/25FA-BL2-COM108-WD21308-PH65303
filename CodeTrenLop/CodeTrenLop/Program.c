@@ -283,9 +283,41 @@ void tenTuoi() {
 }
 //
 //
-int main(){ 
-    int Chon;
+int main() {
+    int intergerarray[100];
+    int length;
+    int i;
+    int tmp;
+    printf("nhap so luong phan tu mang:");
+    scanf("%d", &length);
+    printf("nhap du lieu cho mang %d phan tu\n", length);
+    for (int i = 0; i < length; i++)
+    {
+        printf("mang[%d]=", i);
+        scanf("%d", &intergerarray[i]);
+    }
+    printf("xap xep tang dan du lieu mang %d phan tu\n");
+    for (i = 0; i < length - 1; i++)
+    {
+        if (intergerarray[i] > intergerarray[i + 1])
+        {
+            tmp = intergerarray[i];
+            intergerarray[i] = intergerarray[i + 1];
+            intergerarray[i + 1] = tmp;
+            i = -1;// reset lai vong lap
 
+        }
+    }
+    printf("xuat mang du lieu mang %d phan tu\n");// theo thu tu giam dan
+    for (i = length - 1; i > -1; i--)
+    {
+        printf("mang[%d]=%d\n", i, intergerarray[i]);
+    }
+    printf("xuat mang du lieu mang %d phan tu\n", length);// theo tang dan
+    for (i = 0; i < length; i++)
+    {
+        printf("mang[%d]=%d\n", i, intergerarray[i]);
+    }
 }
 
 

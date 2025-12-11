@@ -7,8 +7,8 @@
 
 
 void kiemTraSoNguyen() {
-	int i = 1;
-	while (i == 1)
+	int tieptuc1;
+	do
 	{
 		int x, j;
 		int count = 0;
@@ -47,11 +47,12 @@ void kiemTraSoNguyen() {
 		else {
 			printf("%d khong phai so chinh phuong\n", x);
 		}
-		printf("Ban co muon thuc hien tiep hay khong [1-Co|khac-Khong]: ");
-		scanf("%d", &i);
-		printf("Ban vua nhap: %d\n", i);
-		system("cls");
+		printf("Ban co muon thuc hien tiep hay khong[1-Co|khac-Khong]:\n ");
+		scanf("%d", &tieptuc1);
+	
 	}
+ while (tieptuc1 == 1);
+	system("cls");
 }
 void TimUocSoChungVaBoiSoChungCua2So() {
 	int i = 1;
@@ -337,7 +338,6 @@ void GameFPOLY_LOTT() {
 				int so1, so2;
 				int soNgauNhien1, soNgauNhien2;
 
-
 				printf("=== FPOLY-LOTT (2/15) ===\n");
 				printf("Nhap so thu nhat (01-15): ");
 				scanf("%d", &so1);
@@ -455,7 +455,7 @@ int main()
 	
 	do 
 	{
-		printf("Menu");printf("\n");
+		printf("----------Menu----------");printf("\n");
 		printf("1. Kiem Tra So Nguyen");printf("\n");
 		printf("2. Tim Uoc So Chung Va Boi So Chung Cua 2 So");printf("\n");
 		printf("3. Chuong Trinh Tinh Toan Tien Cho Qoan KARAOKE");printf("\n");
